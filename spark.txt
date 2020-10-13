@@ -1,0 +1,107 @@
+spark:
+Works with the system to distribute data across the cluster and process the data in parallel
+
+When you enter your code in spark, SparkContext in the driver program creates the job when we call an Action. This job submits to DAG Scheduler which creates the operator graph and then submits it to task Scheduler. Task Scheduler launches the task via cluster manager. Thus, with the help of a cluster manager, a Spark Application launch on a set of machines.
+
+Spark uses master/slave architecture i.e. one central coordinator and many distributed workers. Here, the central coordinator is called the driver.
+
+Driver->driver makes communication to executors -> Executaors is a seprate java process and it executres the process.
+
+Cluster Manager:
+standalone cluster
+
+
+Apache sparkContext: create spark RDD(Resilient Distributed Dataset)->logically partitioned across many servers->to computre nodes/cluster.
+
+diffrent nodes of cluster:
+
+Resilent: fault tolerant, RDD Lineage graph,it will recover from node failer.It posses self-recovery in the case of failure.
+Distrubute: data resides on multiple node.
+Dataset: json/csv/textfile/db
+
+Spark RDD can be cached/manaully partioned.
+RDD can be perisit:
+
+RDD: algorthims,datamining tools,(DSM) distribued share memory->HDFS
+
+RDDs provide a restricted form of shared memory, based on coarse-grained transformation rather than fine-grained updates to shared state.
+
+
+Spark RDD:
+
+    Transformation:Map(), filter(), reduceByKey(), lazy operations, narrow and wider transormation:
+
+    Actions: the final resut, triggers execution of using lineage graph:First(), take(), reduce(), collect(), the count(),
+
+
+Sparkcore->engine for larage scale parallel and distributed data proessing.
+its responsible for memoery.
+fault tolorane:
+schedueing
+distruburing
+monitoring
+interact to storage:
+
+cluster managment:-> acess to database
+execuring jobs,apache mesos,amazon ec2,hadoop yarn.
+
+spark streaming:->real time stream data
+
+spark sql: API,to querying data via sql or hive language, datagrame and dataset api, higher level of abstraction of structure data.
+
+graphx: spark api graph-parallel computing, extends RDD 
+
+MLlib: mechine learning
+
+
+
+
+Apache spark:
+Spark SQl,MLlib,graphx,spark stream:
+
+SparkCore: memory managment and fault tolourance, schedule,distruburing monitoring clusters,interacts with storage system.
+
+RDD: resulent distrubuted dataset: (DAG) direct acycling graph method,
+  RDD: transformation and action:
+       Transsformatin:map,filter,join,union....lazy operation,narrow and wider transofrmation.
+       action:collect:
+
+Spark SQl: sql/hiveQL,
+        sqlcontent.sql
+spark stream: (apache fume,s3,HDFS)
+input datastream->sprak stream->batchs of input data->spark engine->batches of process data.
+
+Mlib:
+graph performance,prallell operations, unifor over ELT algrotims.
+
+
+Create a stream(twitter keywrds, earthquick)->earthquick,nowshaking and so no keywords->load the payload->split ,cauche,scores and lables,meticss-> spark context->select the split payload data->and process it.
+
+
+
+
+Creating RDD:
+Prallelized connections
+external data
+from a RDD
+
+
+prallelized connections: taking a payload from a collection and passing it to the sparkcontext pralleziedmethod
+
+spark.sparkcontext.pralleize(aarray{"jan","feb","..})
+val result=rdd1.coelesce(2)
+result.foreach(println)
+
+External datasets:(dataRDd) .RDD
+hdfs/cassandra ->sparkcontext textfile method -> dataframereader used to load datasets -> use spark session, 
+
+Creating RDD form Existing RDD
+Tranformation acts as a function to intake RDD ,it produces one more RDD by applying operations,
+spark.sparkContext.parallelize(seq{"jan","feb","..})
+
+
+
+
+
+
+

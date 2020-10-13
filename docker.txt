@@ -1,0 +1,28 @@
+Create a docker image using docker build --tag hello
+Test them
+run the docker image as container
+ducker run --publish
+start the container
+
+
+container:
+ docker is a tool to create,deploy and run containers.
+
+docker engine:(client server tech)
+docker cli
+docker deman
+rest api
+
+
+docker image->runcontainer
+
+
+docker registery
+
+client->dokerhost->dockerregistery
+
+
+toincrease nodes:
+docker - service scale 
+
+

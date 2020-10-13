@@ -1,0 +1,63 @@
+Container orchestrations:
+
+managing life cycle of containers. 
+and what is a container, 
+
+Cluster: compute machines or nodes,
+Controlpanel: collection of processes that cotrols nodes,taks,assignment
+kubelet: resive runs on the node and reads the container mainfests,start and stop
+pod : group or more then one containers deployed to a single node. pod,ipaddress,hostname and othr resource.
+
+orscastera
+YAML or json-> configurations
+path of container image, how to establish and store logs
+
+Container managment will automaticlly shcedule the cluster to host.
+
+lifecycle,scale of container,
+
+kubernetces,docker swarm
+________________________
+
+container are deployed onto hosts, scheduler, look for cup memory,metadatainfo.
+once hosted, life cycle
+
+
+What is redshift
+-----------------
+collection of computing resource called nodes. group of nodes makes a cluster.dataware house, data and scale to a petabyte.
+These all runs on database engine,
+creating clusters
+snapshot ->s3->ssl
+cluster acess and security
+aws iam,identy and acess managment
+security group,
+
+
+Lamda:
+it lets you to run your code,without a serverless, for automatision,scaling.
+
+image->awsimage->loaded to s3 bucket->lambda will trigger->lambda will run the image resize code->perofmrs the output.
+
+stream process:
+kinsis:
+steam is loaded->lambada will trigger->lambda runs the code->dynamodb->abalibale for busine querary
+
+dynamodb:
+key-value based document database.
+memory cachching,
+multi-master
+sychoronised replication across inmultip datacenter
+its a schema less, and table and primary key
+
+
+
+
+
+
+cluster:
+perform data analysis query
+
+
+
+

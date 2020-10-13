@@ -1,0 +1,160 @@
+Spring boot, 
+   create stand alone applications
+   spring boot needs minimal configurations
+   no need to deploy war, embed tomcat,jetty web servers.
+   Starter dependencies for configurations
+   3rd part libraries can be configured automaticaly
+   metrics,health checks
+   
+Sprintboot application annotations.
+@configuation
+@enableautoconfigurations
+@componentscan
+single annotationinstea of using multiple.
+loosely coupled features
+individual ananations as per project needs
+
+Exclude any package
+@springbootApplication(Exclude=employee.class)
+
+Disable auto cofiguation.
+@EnableAutoConfiguration(exclude=datasourceconfig.class)
+
+excludeName
+
+
+Spring Actuator.
+__________________
+A easy way to do analyze logs and dig throught the dataflow for an application.
+What beans are created
+Mapping the controller
+CPU usage
+Metrics
+suppots endpoints,REST endpoints
+
+Comment or dont included in the maven dependency: to dispable it
+
+
+Sprint initilazier:
+____________________
+Web application that generats spring boot projects, to do a quick start. 
+Back bone, or skeleton of a project.
+JVM based projects,
+The Spring Initializr is ultimately a web application that can generate a Spring Boot project structure for you. It doesn’t generate any application code, but it will give you a basic project structure and either a Maven or a Gradle build specification to build your code with. All you need to do is write the application code.
+
+
+    A web-based interface.
+    Via Spring ToolSuite.
+    Using the Spring Boot CLI.
+initializr-> actuator,bill of materials or BOM, BOM is a kind of POM, version of project dependency.what,how and where to collect materaisl
+doc,geerators,test,metadata,examples,web,version.
+
+
+Shutdown initilizar:
+____________________
+gracefully shutdown
+managment.endpoint.shutdown.enable==true in application.properties
+
+
+Replaceing embaded tomcat to jetty.
+spring-boot-stater
+
+What are the features of Spring Boot?
+____________________________________
+
+    Web Development
+    SpringApplication
+    Application events and listeners
+    Admin features
+
+We are using STS (Spring Tool Suite) IDE
+
+What are the Spring Boot Annotations?
+____________________________________
+The @RestController is a stereotype annotation. It adds @Controller and @ResponseBody annotations to the class. We need to import org.springframework.web.bind.annotation package in our file, in order to implement it.
+
+
+What is Spring Boot dependency management?
+___________________________________________
+
+Spring Boot manages dependencies and configuration automatically. You don't need to specify version for any of that dependencies.
+
+Spring Boot upgrades all dependencies automatically when you upgrade Spring Boot.
+
+What are the Spring Boot properties?
+_____________________________________
+
+Spring Boot provides various properties which can be specified inside our project's application.properties file. These properties have default values and you can set that inside the properties file. Properties are used to set values like: server-port number, database connection configuration etc.
+
+What is @RestController @RequestMapper annotation in Spring Boot?
+___________________________________________________
+Restcontroller-> controller,responsebody,header 
+Requesmapper-> http request,
+
+The @RestController is a stereotype annotation. It adds @Controller and @ResponseBody annotations to the class. We need to import org.springframework.web.bind.annotation package in our file, in order to implement it.
+The @RequestMapping annotation is used to provide routing information. It tells to the Spring that any HTTP request should map to the corresponding method. We need to import org.springframework.web.annotation package in our file.
+
+Spring vs spring boot:
+_________________________
+Spring is a web application framework based on Java. It provides tools and libraries to create a complete cutomized web application.
+
+Wheras Spring Boot is a spring module which is used to create spring application project that can just run.
+
+
+IOC:
+________
+Inersion of Control is a principle in software engineering by which the control of objects or portions of a program is transferred to a container
+or framework:
+
+    decoupling the execution of a task from its implementation
+    making it easier to switch between different implementations
+    greater modularity of a program
+    greater ease in testing a program by isolating a component or mocking its dependencies and allowing components to communicate through contracts
+
+In the Spring framework, the IoC container is represented by the interface ApplicationContext. 
+the Spring container is responsible for instantiating, configuring and assembling objects known as beans, as well as managing their lifecycle.
+The Spring framework provides several implementations of the ApplicationContext interface — ClassPathXmlApplicationContext and FileSystemXmlApplicationContext for standalone applications, and WebApplicationContext for web applications.
+
+
+
+Sprint security:
+________________
+
+the Spring Boot Starter Security dependency in our build configuration file.
+<dependency>
+   <groupId>org.springframework.boot</groupId>
+   <artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+
+@Configuration
+@EnableWebSecurity
+
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+   @Override
+   protected void configure(HttpSecurity http) throws Exception {
+      http
+         .authorizeRequests()
+            .antMatchers("/", "/home").permitAll()
+            .anyRequest().authenticated()
+            .and()
+         .formLogin()
+            .loginPage("/login")
+            .permitAll()
+            .and()
+            .logout()
+            .permitAll();
+   }
+   @Autowired
+   public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+      auth
+         .inMemoryAuthentication()
+         .withUser("user").password("password").roles("USER");
+   }
+}
+
+
+
+
+
+ 
+

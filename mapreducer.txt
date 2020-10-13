@@ -1,0 +1,29 @@
+mapreduce
+proess data paralley in a distrubuted form
+simplify data processing on a large culsuter
+mapreducer, input via key-value pair
+
+mapper is feed, to the reducer as input
+keyvaluepari->input
+sorts
+shuffles
+and applies hadoop methods
+reduce the out put, mapping
+
+mapreducer:
+jobcline
+reduceer manager
+node manager
+
+
+mysql-nosql
+SQL; RDBMS,database->tables->fileds,datatimpe, sql quiery in a single server, tightly coupled clusters of server.
+ACID:atomicity,constiency,isolation and durablity.
+
+NOSQ:, loosly coupled, clustering,replica, high avalibality distribution system.
+CAP therom:
+schemaless;
+graphs,db,doucments,keyvalues
+nosql: 	
+
+

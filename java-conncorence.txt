@@ -1,0 +1,57 @@
+java.util.concorrent:
+
+what-is-difference-between-synchronized and concurreny:?
+
+Though both Synchronized and Concurrent Collection classes provide thread-safety, the differences between them come in performance, scalability and how they achieve thread-safety. Synchronized collections like synchronized HashMap, Hashtable, HashSet, Vector, and synchronized ArrayList are much slower than their concurrent counterparts e.g. ConcurrentHashMap, CopyOnWriteArrayList, and CopyOnWriteHashSet.
+
+ The main reason for this slowness is locking; synchronized collections locks the whole collection e.g. whole Map or List while concurrent collection never locks the whole Map or List.
+
+They achieve thread-safety by using advanced and sophisticated techniques like lock stripping. For example, the ConcurrentHashMap divides the whole map into several segments and locks only the relevant segments, which allows multiple threads to access other segments of the same ConcurrentHashMap without locking.
+
+
+Similarly, CopyOnWriteArrayList: allows multiple reader threads to read without synchronization and when a write happens it copies the whole ArrayList and swaps with a newer one.
+
+
+
+Synchronize means : the resource(which is synchronized) can't be modified by multiple threads simultaneously. e.g MAP returned by Collections.synchroniz
+edMap(Map) will be a synchronized map and can be modified by one thread at a time, but Concurrent Collections allows multiple threads to access different parts of a collection at a given time, based on the requirement. e.g we have an overloaded constructor for ConcurentHashMap which takes input concurrencyLevel as number of threads which can access the collection simultaneously.
+
+
+
+    Executor:Executor is an interface that represents an object that executes provided tasks.if the task should be run on a new or current thread. Hence, using this interface, we can decouple the task execution flow from the actual task execution mechanism.
+
+public class Invoker implements Executor {
+	    @Override
+	    public void execute(Runnable r) {
+	        r.run();
+	    }
+	}
+ 
+
+    ExecutorService:ExecutorService is a complete solution for asynchronous processing. It manages an in-memory queue and schedules submitted tasks based on thread availability.
+
+    ScheduledExecutorService:ScheduledExecutorService is a similar interface to ExecutorService, but it can perform tasks periodically.
+
+    Future:Future is used to represent the result of an asynchronous operation. It comes with methods for checking if the asynchronous operation is completed or not, getting the computed result, etc.
+
+    CountDownLatch:A CountDownLatch is initialized with a counter(Integer type); this counter decrements as the dependent threads complete execution. But once the counter reaches zero, other threads get released.
+
+    CyclicBarrier:CyclicBarrier works almost the same as CountDownLatch except that we can reuse it. Unlike CountDownLatch, it allows multiple threads to wait for each other using await() method(
+
+    Semaphore:The Semaphore is used for blocking thread level access to some part of the physical or logical resource. A semaphore contains a set of permits; whenever a thread tries to enter the critical section, it needs to check the semaphore if a permit is available or not.
+
+    ThreadFactory:, ThreadFactory acts as a thread (non-existing) pool which creates a new thread on demand. It eliminates the need of a lot of boilerplate coding for implementing efficient thread creation mechanisms.
+
+    BlockingQueue:In asynchronous programming, one of the most common integration patterns is the producer-consumer pattern. The java.util.concurrent package comes with a data-structure know as BlockingQueue
+
+    DelayQueue:DelayQueue is an infinite-size blocking queue of elements where an element can only be pulled if it's expiration time (known as user defined delay) is completed. Hence, the topmost element (head) will have the most amount delay and it will be polled last.
+
+    Locks:Not surprisingly, Lock is a utility for blocking other threads from accessing a certain segment of code, apart from the thread that's executing it currently.
+
+    Phaser:Phaser is a more flexible solution than CyclicBarrier and CountDownLatch – used to act as a reusable barrier on which the dynamic number of threads need to wait before continuing execution. We can coordinate multiple phases of execution, reusing a Phaser instance for each program phase.
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+
+12+ year exprience:
+Over 13+ year of professional IT experience in building Java based applications,including 5 years experience in On-demand delivery of infrastructure with cloud computing, assembling cloud-based components with optimized micro-services in cloud-native, Data Ecosystem and Orchestrate in Cloud-based Environment.
+
+Creating Data ecosystem with an emphasis on Big data solutions, Amazon Web Services(AWS), Java, J2EE Spring frameworks, Micro services architecture,
+automation pipelines, Linux.
+
+Worked closely with Clients and Architects to Create and implement new system designs as well as make improvements to existing systems, Managed to contribute in all aspects of application development, deployment, production support, Reporting,Insight of data with continuous delivery and integration in Cloud platform.
+
+
+Started my carrier, in working projects like convert xml to java, using marshaling and unmarshaling concepts. 
+deriving or parsing xml to pdf mapping to generate user views.
+building templates to produce client-side pages, 
+writing controls, using drools rules engine for navigation system for web based modules atrucutes, where reistration,payment, user controls and admin was there. 
+writing mysql quries,
+springboot,hibernate,jpa,mysql,spring mvc where used. 
+
+deployment CI/CD
+Hosting and deploying these application, providing, techical suppoort and doing tourbleshoot was the main cirtierka
+
+project managment-> communication,scope of understanding, all on one page, transprancy,meeting dead lines,bandwhith and resource, handing backlogs.
+building good relationsihp to resolove issues, 
+
+last project:
+Project:
+Developing a data connector to ingest and extract data for datacatalog
+Scope of the connector:Metadata Cataloger of (filesystem/database/nondatabase) for datasearch/discrovery and data goverance.
+
+Collect data from BI tools:(dundus/tableau or from any cloud platform)
+Generating Auth tokens,do validation and Get the payload with Rest API 
+
+
+The process:
+Pay load datasource are from cloud, s3 bucket,or github repo, or from tableau or mysql or even a csv.
+First level: Projects -> Datasource
+Second level: visual analytics, creating & sharing dashboards, reports, scorecards,
+datasource, multi-page report, and small multiple views.-> reports and folders
+Third level: Measures and dimensions -> fields 
+
+Process and Cache the data in memory:Datastructures,mapdb
+Injest,filter and clense object and structure and refactor and datastream the object using collections
+
+Extract and Post to the datacatalog system:
+split the large data into chunks, 
+pagnate them and post them for parallel or sequancial posting.
+Post Data using rest API to the view.
+
+
+Endpoint: tableau.amazong,rds instance
+port:3306
+
+Name of the server that hosts the database
+username and password
+port
+
+
+
+
+

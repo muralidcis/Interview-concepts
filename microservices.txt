@@ -1,0 +1,94 @@
+microservices:
+independent deployment based on there individual functionality,services it can be deployed.
+fault isolation: even when once service of the application stops, still others will function.
+
+mixed,technology on diffrent platform.
+granular scaling, by individual services for cost cuts.
+
+
+what do you know about microservies,
+microservice architecture:
+structures on applications, as a collection of small autonomous servies, modeled around a business domain.
+
+features of microservices:
+decoupling:
+componentization: easy upgrade and replace
+business capalablities: jsut the business focus
+autonomyos: independentaly
+continues delivery:systmatic automatically co CI and CD:
+repsopiblity:
+decenteralization
+agality
+
+
+
+Best practice:
+Seperate datastore for each microservices
+keep code at similar level maturaity
+seperate build for each microserviecs
+deployment in container
+treat server as stateless
+
+
+how microservice works:
+client->identity provider->api gateway-> distributed services=services=services  -> these services have managment and service discovery->remote server
+client->identity provider->api gateway->static content->cdn: 
+
+Client diffrent users from various request:
+identiy provider:Autho,client identity,tokens:
+api gateway: handling client request, rest api
+static content: all static content
+managment: balance services on nodes,identifies failers
+services discovery: communicatin between microservices
+CDN: proxy for data center
+remote server:
+
+
+pros and corns:
+
+
+Monolathic,SOA and microservices archecuters
+
+
+challanges:
+automateing the components: build deploy and monitor
+preciblity:maintiaing larage number of compununents, to have diffrent stages,build deploy and monitor
+configure managment:
+debugging: logging,dashboards,dubug problems
+
+
+communication between microserviers:
+light weight data structure message broker that manages sessions and data queues
+common source of informations
+
+datafeed: steam cauche data at real time,datatypes and mesasge formats
+request and responce:
+
+
+
+database:
+A service’s transactions only involve its database.
+
+order service api->order service->order table->id,customer_id,status,total...
+customer service api->customer service->customer table->id,credit_limit....
+
+private table per services: each services owns table that must only be acessed by that services
+schema per services: each schema has database schema that private to that services
+database per services: each services have its own database services
+
+Command Query Responsibility Segregation.
+CQRS pattern or DDD patterns,
+
+Queary and command 
+
+
+
+
+
+
+
+
+
+
+
+

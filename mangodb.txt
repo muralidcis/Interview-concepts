@@ -1,0 +1,32 @@
+Mangodb:
+document-oriented data model and a non-structured query language. It is an architecture that is built on collections and documents.The basic unit of data in this database consists of a set of key–value pairs.It allows documents to have different fields and structures. This database uses a document storage format called BSON which is a binary style of JSON documents.
+
+
+config server->mongos->client
+config server->mongos->mangod(shard)
+
+Database: physical container of data.each database has if own set of files on the filesystem.  create a db(use employee),list database show db or show dbs. drop a database db.dropDatabase()
+
+Collections: a group of database documents is called collections.(tables)
+
+Document: set of keyvalue pair,
+
+linking: like joins in rdbms
+
+
+features of mangodb:
+indexing,highperformance,aggeration,gridfs,sharding,doument oridientation,replacation,schema less database. 
+
+_id ?
+collections requires a unique id,actslike a primaray key
+Store engine:
+wiredtiger store engine
+in memory storage: entprise editions, on memory
+mmapv1 storage:
+
+
+
+
+
+
+

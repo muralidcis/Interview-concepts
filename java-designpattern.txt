@@ -1,0 +1,105 @@
+Design patterns:
+Creational: factory,abstract,signleton,prototype,builder
+structural: adoptor,bridge,composite,decoractor,facade,flyweight,proxy
+behavioral: chain of responsible,command,interpreter,mediator,template,visitor,observer,state,memento,iterator
+
+
+
+creational: way you create objects, Employee emp = "new" Employee();
+
+structural: what does a class contain, what are the relationship with other classes. 
+
+behaviour: interaction between two objects, object behaviours,
+
+
+
+Creational: 
+_______________
+
+prototype(initilized instance to be copied, or clone: game setup, intital configuration that requiues for a project),
+
+
+builder: subsets of the options abaliable,
+___________
+Builder design pattern is an alternative way to construct complex objects and should be used only when we want to build different types of immutable objects using same object building process.
+coffee: {type,sugar,milk and size}
+you can delivery the coffee to strong or light with the milk of more and less requirement
+you can delivery the coffe with diffrent falvour,
+you can delivery the coffe with or without sugar,
+
+The build handles the required delivery of diffrent variaty of options that moudle can delivery. 
+
+esseintarly the module should provide, the major process, like sugar,milk size and type and based on the user input it can vary with the out put. 
+
+more felidablity.
+
+simlifies the object creations
+leads to more readable code
+doestnotallow values to modifity
+
+singleton:private,enum,@singleton, java bean.
+_______________
+allows on instance to per class at jvm at any point.
+
+factory:
+_____________
+keep fruit class, or employee class for all section, or human object for male and female. and so on:
+
+Prototype :
+____________
+Prototype design pattern is used in scenarios where application needs to create a large number of instances of a class, which have almost same state or differ very little.
+
+abstract:
+__________
+Abstract factory pattern is used whenever we need another level of abstraction over a group of factories created using factory pattern.
+
+
+Structural Design Patterns
+__________________________
+
+proxy:
+________
+object rep to another object,credit card,ejb,
+In proxy design pattern, a proxy object provide a surrogate or placeholder for another object to control access to it. Proxy is heavily used to implement lazy loading related usecases where we do not want to create full object until it is actually needed
+
+
+Decoractor: 
+____________
+Decorator design pattern is used to add additional features or behaviors to a particular instance of a class, while not modifying the other instances of same class.
+relationship dynamicly
+discount at runtime, adding things at on the flytime, creating buffers:
+toppings for 10 diffrent pizza, where toppings is created at a common place and used for all the three, at runtime.
+discount for diffrent items.
+fileinput with bufferinput stream.
+
+Adopter:
+________
+an adapter convert the interface of a class into another interface clients expect. It lets classes work together that couldn’t otherwise because of incompatible interfaces.
+
+Bridge:
+________
+Bridge design pattern is used to decouple a class into two parts – abstraction and it’s implementation – so that both can evolve in future without affecting each other. It increases the loose coupling between class abstraction and it’s implementation.
+
+Composite:
+__________
+Composite design pattern helps to compose the objects into tree structures to represent whole-part hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.
+
+Facade:
+_______
+Facade design pattern provide a unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes the subsystem easier to use.
+
+Flyweight:
+_________
+Flyweight design pattern enables use sharing of objects to support large numbers of fine-grained objects efficiently. A flyweight is a shared object that can be used in multiple contexts simultaneously. The flyweight acts as an independent object in each context.
+
+
+
+
+
+
+ 
+
+
+
+
+

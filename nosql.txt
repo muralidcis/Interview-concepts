@@ -1,0 +1,95 @@
+nosql
+NoSQL databases are purpose built for specific data models and have flexible schemas for building modern applications. NoSQL databases are widely recognized for their ease of development, functionality, and performance at scale. 
+NoSQL databases use a variety of data models for accessing and managing data. These types of databases are optimized specifically for applications that require large data volume, low latency, and flexible data models, which are achieved by relaxing some of the data consistency restrictions of other databases
+
+Flexibility: NoSQL databases generally provide flexible schemas that enable faster and more iterative development. The flexible data model makes NoSQL databases ideal for semi-structured and unstructured data.
+
+Scalability: NoSQL databases are generally designed to scale out by using distributed clusters of hardware instead of scaling up by adding expensive and robust servers. Some cloud providers handle these operations behind-the-scenes as a fully managed service.
+
+High-performance: NoSQL database are optimized for specific data models and access patterns that enable higher performance than trying to accomplish similar functionality with relational databases.
+
+Highly functional: NoSQL databases provide highly functional APIs and data types that are purpose built for each of their respective data models.
+
+
+Type of no-sql:(dynomoDB)
+Key-value: Key-value databases are highly partitionable and allow horizontal scaling at scales that other types of databases cannot achieve. Use cases such as gaming, ad tech, and IoT lend themselves particularly well to the key-value data model. Amazon DynamoDB is designed to provide consistent single-digit millisecond latency for any scale of workloads. This consistent performance is a big part of why the Snapchat Stories feature, which includes Snapchat's largest storage write workload, moved to DynamoDB.
+
+Wide-column: (casandra) stores store data in tables, rows, and dynamic columns. Wide-column stores provide a lot of flexibility over relational databases because each row is not required to have the same columns. Many consider wide-column stores to be two-dimensional key-value databases. Wide-column stores are great for when you need to store large amounts of data and you can predict what your query patterns will be. Wide-column stores are commonly used for storing Internet of Things data and user profile data. Cassandra and HBase are two of the most popular wide-column stores
+
+Document:(mangoDB) In application code, data is represented often as an object or JSON-like document because it is an efficient and intuitive data model for developers. Document databases make it easier for developers to store and query data in a database by using the same document model format that they use in their application code. The flexible, semistructured, and hierarchical nature of documents and document databases allows them to evolve with applications’ needs. The document model works well with catalogs, user profiles, and content management systems where each document is unique and evolves over time. Amazon DocumentDB (with MongoDB compatibility) and MongoDB are popular document databases that provide powerful and intuitive APIs for flexible and iterative development.
+
+
+Graph:(sparQL) A graph database’s purpose is to make it easy to build and run applications that work with highly connected datasets. Typical use cases for a graph database include social networking, recommendation engines, fraud detection, and knowledge graphs. Amazon Neptune is a fully-managed graph database service. Neptune supports both the Property Graph model and the Resource Description Framework (RDF), providing the choice of two graph APIs: TinkerPop and RDF/SPARQL. Popular graph databases include Neo4j and Giraph.
+
+In-memory:(Redis,memcached) Gaming and ad-tech applications have use cases such as leaderboards, session stores, and real-time analytics that require microsecond response times and can have large spikes in traffic coming at any time. Amazon ElastiCache offers Memcached and Redis, to serve low-latency, high-throughput workloads, such as McDonald’s, that cannot be served with disk-based data stores. Amazon DynamoDB Accelerator (DAX) is another example of a purpose-built data store. DAX makes DynamoDB reads an order of magnitude faster.
+
+
+Search: Many applications output logs to help developers troubleshoot issues. Amazon Elasticsearch Service (Amazon ES) is purpose built for providing near-real-time visualizations and analytics of machine-generated data by indexing, aggregating, and searching semistructured logs and metrics. Amazon ES also is a powerful, high-performance search engine for full-text search use cases. Expedia is using more than 150 Amazon ES domains, 30 TB of data, and 30 billion documents for a variety of mission-critical use cases, ranging from operational monitoring and troubleshooting to distributed application stack tracing and pricing optimization.
+
+
+
+Mangodb:
+
+db.collection.insertOne( { isbn: 100 } )
+{
+"acknowledged" : true,
+"insertedId" : ObjectId("5c4493aa750820eae9756a15")
+}
+
+create index:
+db.address.createIndex( { "location": "2dsphere"} )
+
+
+
+casandra:
+use json;
+
+CREATE type json.sale ( id int, item text, amount int );
+
+CREATE TABLE json.customers ( id int  PRIMARY KEY, name text, balance int, sales list> );
+
+INSERT INTO json.customers (id, name, balance, sales) 
+VALUES (123, 'Greenville Hardware', 700,
+ [{ id: 5544, item : 'tape', amount : 100},
+  { id: 5545, item : 'wire', amount : 200}]) ;
+select * from customers;
+
+
+CREATE TABLE Library.book (       
+ISBN text, 
+copy int, 
+title text,  
+PRIMARY KEY (ISBN, copy)
+ );
+
+INSERT INTO  Library.book (ISBN, copy, title) VALUES('1234',1, 'Bible');
+
+
+creating index:
+CREATE TABLE  Library.patron (      
+ssn int PRIMARY KEY,  
+checkedOut set 
+);
+
+INSERT INTO Library.patron (ssn, checkedOut) values (123,{'1234','5678'});
+
+create index on Library.patron (checkedOut);
+
+
+Sharding:
+Sharding means distributing data across a cluster. This is done by applying an algorithm across part of all of a document or index. MongoDB and Cassandra both provide a fine level of control over this.
+
+Cassandra does this with Cassandra Partition key, Composite key, and Clustering Columns and Using Tokens to Distribute Cassandra Data. In brief, each table requires a unique primary key. The first field listed is the partition key, since its hashed value is used to determine the node to store the data. If those fields are wrapped in parentheses then the partition key is composite. Otherwise the first field is the partition key. Any fields listed after the primary key are called clustering columns. These store data in ascending or descending order within the partition for the fast retrieval of similar values. All the fields together are the primary key.
+
+
+Mangodob:You communicate with the routers and they consult the config servers to determine where to write and read data on the shard servers, i.e. where the data is stored. The config servers also work as replica sets, meaning they replicate data there, to have a extra copy.
+mongomaster—this is the router.
+mongoshard—this is the database server that we wish to shard, i.e., run on a cluster.
+mongoconfig—this is both a config server and a database replica.
+
+sh.enableSharding("tobacco")
+{ "ok" : 1 }
+
+
+Replication means making more than one copy of data to prevent against data loss due to hardware or other failure.
+

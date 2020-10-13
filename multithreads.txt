@@ -1,0 +1,110 @@
+Multithread:
+
+lifecycle:
+New: thread class object is created, using a new operator but thread is not alive.untill start method is called. 
+
+Runanable: the thread is ready to run after calling the strart() method. it is yet to be seleceted for the thread scheduler.
+
+running: the thread scheduler picks up, the thread from ready state, thread is running.
+
+waiting/blocked:
+a thread is not running but still alive, or wiating for other thread to finesh.
+
+dead/terminated.
+the thread is terminated or dead,  when the run method exits. 
+
+thread scheduler:
+preemptive schedule: highest pritory task executes,until it enters the wiating or dead state, higher priority task comes into existence.
+
+timeslicing: a task executes for predefined slice of time, and reenters the pool for ready tasks. 
+
+context switching:
+state of the process is stored , so that it can be stored and executed can be resumed from same point or later.  context swithcing enables multip processes to share the same cpu.
+
+Thread class and runnable interfance:
+Thread:
+can be creatd by extending thread class
+implementing the thread class.
+
+Runnable interface is used, for extending to implement the runnable interface.
+multi thread shares same object
+
+getPriority(),isAlive are inbuild methods
+
+
+Sleep();
+block a thread for a particular time.
+ milisecounds
+when sleep is active it allows other thread to execute.and when the time gets over it gets pritory.
+
+wait vs sleep:
+wait is defined in object class, sleep is defined in thread class
+wait method release the lock, sleep method doenot release the lock.
+
+
+Daeman thread:
+low 	pritory thread,that runs in the backgroud to support, serivice to the user thread. its automaticaly gets terminated by the jvm with it remains with daeman thread,
+setDaeman
+isDaeman
+
+daeman thread cannot me started before a user thread.
+
+
+shutdownhook:
+its called before jvm shutdown,can be used to perform cleanup ,resource or save the state of jvm, normall or abruted,
+thread.addshutdownhook(new my thread)
+
+deadlock:
+Deadlock describes a situation where two or more threads are blocked forever, waiting for each other. Deadlock occurs when multiple threads need the same locks but obtain them in different order. A Java multithreaded program may suffer from the deadlock condition because the synchronized keyword causes the executing thread to block while waiting for the lock, or monitor, associated with the specified object.
+
+1) order the threads
+2) use synchronisaed block/method, so it will allow only one thread.
+3) avoid nested locks
+4) avoid unnesseary locks
+5) thread joins,
+
+dead lock cannot be recovered, only way is to restart the jvm.
+
+
+Thread pool:
+Java Thread pool represents a group of worker threads that are waiting for the job and reuse many times.
+In case of thread pool, a group of fixed size threads are created. A thread from the thread pool is pulled out and assigned a job by the service provider. After completion of the job, thread is contained in the thread pool again.
+
+The Thread Pool pattern helps to save resources in a multithreaded application, and also to contain the parallelism in certain predefined limits.
+
+Executors, Executor and ExecutorService
+Executors helper class contains several methods for the creation of pre-configured thread pool instances for you. Those classes are a good place to start with – use it if you don't need to apply any custom fine-tuning.
+
+The Executor and ExecutorService interfaces are used to work with different thread pool implementations
+
+ThreadPoolExecutor
+
+The main configuration parameters that we'll discuss here are: corePoolSize, maximumPoolSize, and keepAliveTime.
+
+ScheduledThreadPoolExecutor
+
+thead over flow:
+A ThreadPoolExecutor will automatically adjust the pool size (see getPoolSize()) according to the bounds set by corePoolSize (see getCorePoolSize()) and maximumPoolSize (see getMaximumPoolSize()). When a new task is submitted in method execute(java.lang.Runnable), and fewer than corePoolSize threads are running, a new thread is created to handle the request, even if other worker threads are idle. If there are more than corePoolSize but less than maximumPoolSize threads running, a new thread will be created only if the queue is full. By setting corePoolSize and maximumPoolSize the same, you create a fixed-size thread pool. By setting maximumPoolSize to an essentially unbounded value such as Integer.MAX_VALUE, you allow the pool to accommodate an arbitrary number of concurrent tasks. Most typically, core and maximum pool sizes are set only upon construction, but they may also be changed dynamically using setCorePoolSize(int) and setMaximumPoolSize(int).
+
+Basically, you can set two sizes: the 'core' size and the 'max' size. When tasks are submitted, if there are fewer than 'core' threads, a new thread will be created to execute that task. If there are greater than 'core' threads, one of the current threads will be used to execute tasks, unless all current threads are busy. If all current threads are busy, more threads will be created up to 'max' size. Once 'max' number of threads are reached, no more will be created, and new tasks will be queued until a thread is available to run them.
+
+
+
+ThreadPoolExecutor's submitted method throws RejectedExecutionException if the task cannot be scheduled for execution.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

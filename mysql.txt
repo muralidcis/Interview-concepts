@@ -1,0 +1,20 @@
+What is a common table expression or CTE
+
+
+;WITH cte AS
+(
+  SELECT
+      ROW_NUMBER() OVER(PARTITION BY Column1  ORDER BY Column1 ) AS rno,
+      Column1 
+  FROM Clients
+)
+
+UPDATE cte SET Column1 =Column1 +' 1 '
+WHERE rno=2
+
+ROW_NUMBER() OVER (<partition_definition> <order_definition>)
+
+
+usig a innerjoin and unique
+
+

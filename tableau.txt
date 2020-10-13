@@ -1,0 +1,26 @@
+tableau
+ projects->catolaged as folders =>
+     workbook-> cataloged as reports => (reports/dashboard/story as cataloged in alation as reports only by type)
+
+         dashboard(worksheets and report)-> catolaged as reports
+		type: reports
+                      dashboard
+                      storyboard   -> catolaged as reports 
+                           measure
+                           dimensions -> catolaged as fields -> report coloumn
+
+tableau datasource(oracle) -> when connector runs -> collect all the datasource:
+	Based on the alation datasource ID: map the tableau datasource and create the lineage. 
+
+     
+      Datasource  -> catolaged as datasource(port:connections)-> alation 
+  	data connections-(mysql/sql)-> cataloged as connections -> tableau
+          datasource coloumn ->cataloged as fields (datasource fields)-> tableau
+                       Lineage generations. 
+
+
+baseurl:
+sso.online.tableau.com/public/idp/SSO
+
+apiurl:
+sso.online.tableau.com/api/3.8/

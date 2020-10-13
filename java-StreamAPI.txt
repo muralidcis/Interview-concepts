@@ -1,0 +1,63 @@
+A stream is an abstraction of a non-mutable collection of functions applied in some order to the data.
+	
+when to use java stream
+Java streams represent a pipeline through which the data will flow and the functions to operate on the data. As such, they can be used in any number of applications that involve data-driven functions
+
+    Filter - returns a new stream that contains some of the elements of the original. It accepts the predicate to compute which elements should be returned in the new stream and removes the rest. In the imperative code we would employ the conditional logic to specify what should happen if an element satisfies the condition. In the functional style we don’t bother with ifs, we filter the stream and work only on the values we require.
+
+    Map - transforms the stream elements into something else, it accepts a function to apply to each and every element of the stream and returns a stream of the values the parameter function produced. This is the bread and butter of the Java streaming API, map allows you to perform a computation on the data inside a stream.
+
+    Reduce - (also sometimes called a fold) performs a reduction of the stream to a single element. You want to sum all the integer values in the stream - you want to use the reduce function. You want to find the maximum in the stream - reduce is your friend.
+
+    Collect - is the way to get out of the streams world and obtain a concrete collection of values, like a list in the example above.
+
+Stream example:(One of the advantages of streams is that they can process things lazily.)For example, you might deal with lines of text from a large file as a stream, and that would mean that lines are only loaded as required, and that could save a lot of memory.
+
+Another advantage of streams is that they can operate on their contents in parallel. The method .parallelStream() automatically switches to parallel processing and can be a very simple yet effective way to divide up processing between available threads, where the order of processing isn’t important.
+
+In Java8 Streams, performance is achieved by parallelism, laziness, and using short-circuit operations.
+
+The fork/join framework is an implementation of the ExecutorService interface that helps you take advantage of multiple processors.
+
+In Java Streams, parallelism is achieved by using the  Fork-Join principle,As per the Fork-Join principle, it divides larger tasks into smaller sub-tasks (known as forking), and then processes the sub-tasks in parallel to utilize all the available hardware, then combines the results together (known as Join) to form an integrated result.
+
+Lazyiness:
+Once the terminal operation is called, traversal of streams begins and the associated function is applied one by one. Intermediate operations are lazy operations, so Streams supports laziness
+
+
+    String sentence = "The Streams and Collections are not the same."; 
+    String [] words = sentence.split(" "); 
+    long wordCount = Stream.of(words) //Stream.of(words) creates a stream from the array
+    	.mapToInt(word -> word.charAt(0)) //transforms the stream element from a String word to its first character (a Character object)
+    	.filter(firstChar -> Character.getType(firstChar) == Character.UPPERCASE_LETTER)  //checks if the character object is a uppercase letter
+    	.count(); 
+    System.out.println(wordCount); // prints 3 
+
+witout stream:
+    String sentence = "The Streams and Collections are not the same."; 
+    String [] words = sentence.split(" "); 
+    int wordCount = 0; 
+    for (String word : words) { 
+    	char ch = word.charAt(0); 
+    	if (Character.getType(ch) == Character.UPPERCASE_LETTER) { 
+    		wordCount++; 
+    	} 
+    } 
+    System.out.println(wordCount); // prints 3 
+
+
+
+
+parallel stream and asynchronous:
+_________________________________
+
+To make your code run parallel, you simply use .parallelStream() instead of  .stream() , (or  stream.parallel()
+
+Parallel code gets its speed benefit from using multiple threads instead of the single one that sequential code uses. Deciding how many threads to create can be a tricky question because more threads don't always result in faster code: if you use too many threads the performance of your code might actually go down.
+
+ Streams have built-in efficiency by laziness: they use lazy evaluation which saves resources by not doing more than necessary. This is not the same as parallelism, which doesn’t care about the resources as long as it goes faster. So for big collections, you probably don’t need classic parallelism.
+
+CompletableFuture :
+supplyAsync :
+runAsync 
+ 

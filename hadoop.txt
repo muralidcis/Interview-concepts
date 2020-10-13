@@ -1,0 +1,48 @@
+large datasets to store and process:
+(Volume,velocity,variety)
+
+volume: tera to petabyte of data. 
+velocity: time frame,to proess the data. high speed of data computing.
+
+variety: diffrent formats,text,xml,image,audio,video....
+
+Hadoop:
+Technology to store massive datasets, on a cluster of cheap machines in a distrubted manner. 
+cloudera,mapR,hortonworks.
+
+HDFS-> hadoop distrubuted file system, distributed storage forhadeeop. master-slave.
+
+Master is a high-end machine, slaves are inexpensive computers.
+big data files-> divided into no of blocks->hadoop stores these blocks in distributed fashion on the clusters of slave nodes. 
+On the master have metadata of the storaged data.
+
+
+HDFS have two daemo:
+NameNode  and datanode:
+
+NameNode: runs on the master machine, maintaining,monitoring and managing data nodes. it records the metadata of the files, like location of the block,file size,permission and other hierarchy.
+
+Namenode captures all the changes to metadata like deletion,creation and renaming on the files in edit logs. 
+Name node, regularly recives heartbeat and bocks reports from the datanode. 
+
+
+DataNode:
+Data node runs on the slave machines.
+its stores the actual business data.
+datanode does the ground work for creating,replicating and deleting blocks on the command of NameNode.
+every 3 secounds, it sends a heartbeat to Namenode for reporting the health of HDFS.
+
+Map reduce:
+data processing layer
+Map Phase and reduce Phase.
+
+Map:-> collect the data and map it to key-value pairs.
+reduce phase-> takes the key-value pair map and aggreagation based on the key value pair.
+
+splits into tuples->map function to key value pair-> reduce function sorts values from the keyvalue pair->merages same keys,reduces,aggreate functions to one key-value pair and the output is stored to the hdfs. 
+
+
+yarn:
+yet another resource nechosator
+Resource manager-> resource scheduler,application master monitor->node manager monitor->event handlers.
+

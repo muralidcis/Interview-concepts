@@ -1,0 +1,85 @@
+Bigdata
+Defined as collection of comlex unstructured or semi structured datasources,or data set, which have the potential to deliver actions for insights. 
+Data mining,data clensing, data analysis,filter,sort...ect 
+
+four vs of big data
+Volume:amount of data 
+variety: diffrent formats of data sources
+velocity: the increase speed at which data grows everyday
+veracity: degree of accuracy of the data 
+
+hadoop:
+its a open source platforms, stores,process and analyzises complex unstructured dataset for business insights and intelligence. 
+
+HDFS:
+hadoop file system.
+NameNode: master node that has metadata information of all the data blocks in hdfs
+datanode: slave node are responsible for data storage. 
+
+YARN:
+Response for managing resource and providing execution env:
+Resource Manager: allocation resource to respecitive nodemanager on the need
+NodeManager: Executes task on the every datanode.
+
+Commodity hardware:
+minimal hardware resource, support hadoops requirement 
+
+FSCK:
+filesystem check. gets hadoop summary reprots.
+it checks only for errors,doens not correct them.
+subsets of files
+
+JPS: 
+tests demons like namenode and datanode and resource manager and node manager and more 
+
+./sbin/start-all.sh
+./sbin/stop-all.sh
+
+featuers of hadoop:
+opensource, scalablity,datarecovery,datalocality, falult tolarance
+
+50070->namenode
+50060->task tracker
+50030jobtracker
+
+hdfs:
+indexs datablocks on there sizes, next chunk of datablocks get stores.
+datastores the blocks of data
+and name node stores these datablocks
+
+Edge nodes:
+gateway node, its a interfacer hadoop cluster and external network
+
+datamanagment tools:
+oozie,ambari,pig,flume ...
+
+Reducer:
+Setup,reduce and cleanup
+setup: params, like heapsize and distrubted catuche and input data
+reduce: reduce task once per key
+cleanup: clears cauche at end of the reducer task 
+
+
+depllyment of bigdata solutions:
+Data ingestions:
+data store:
+data process: hadoop,spark,mapreduce
+
+nfs vs hdfs
+
+rack awareness
+algorithum that idenitifies, selects datanodes, closer to the namenode in the rack.
+how data blocks are there replicas willb e placed. 
+
+recovery a namenode:
+fsimage, filesystem metadata replica, -> new namenode.
+cofiguure the datanode along the clinets so it starts the newnode
+after start it checks for fsimage loading process and starts serviing frm the clent
+
+
+
+
+
+
+
+

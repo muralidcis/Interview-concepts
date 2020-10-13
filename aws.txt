@@ -1,0 +1,32 @@
+
+Creating ec2 instance:
+
+signup for aws:
+create a key pair(login without  a password/ssh key/pemkey)
+create secuirty group:
+secuiry group acts like a filewall, inbou and outbound traffic.
+add rules to security group,frm you ip using ssh,https acess,vpn,
+
+launch ec2:
+Chose the AMI(amazon machine image)
+chose the type of instance
+pc and efs( EFS (aws/elasticfilesystem),lifesycle)
+subnet
+filesystem
+show id of the filesystem and mount point to the ec2 instance.
+add user tthe data.
+addstorage
+add tag
+configuare security gruop
+review and launch.
+
+
+
+
+how to create a s3 bucket:
+sign to aws console:
+create bucket:
+bucket name:
+chose the regoin.
+bucket setting for acess
+create bucket

@@ -1,0 +1,32 @@
+Collections:
+    Elements can be added or removed
+    The collection will have a size that can be queried
+    The collection may or may not contain duplicates
+    It may or may not provide ordering
+    It may or may not provide positional access (e.g. get me item at location 6)
+
+
+The Collection Types:
+Set: A set has no duplicates and no guaranteed order. Because of this, it does not provide positional access. Implements Collection. Example implementations include TreeSet and HashSet.
+
+List: A list may or may not contain duplicates and also guarantees order, allowing positional access. Implements Collection. Example implementations include ArrayList and LinkedList.
+
+Map: A map is slightly different as it contains key-value pairs as opposed to specific object. The key of a map may not contain duplicates. A map has no guaranteed order and no positional access. Does not implement Collection. Example implementations include HashMap and TreeMap.
+
+
+hashset:hashmap:
+Interestingly HashSet is backed by HashMap, so for the purpose of this I will just discuss the latter. A HashMap works like this: under the covers a HashMap is an array of references (called the Entry Table, which defaults to 16 entries) to a group of LinkedLists (called Buckets) where HashEntries are stored. A HashEntry is an object containing the key and associated object.
+
+EnteryTable->linked list(Bucket to store the hashenteries)->hashentries got keys/values->mapentry->hashcode:
+
+hasing,	->putapi,getapi:
+
+
+ArrayLIst:
+ArrayList is a part of collection framework and is present in java.util package. It provides us with dynamic arrays in Java. Though, it may be slower than standard arrays but can be helpful in programs where lots of manipulation in the array is needed. This class is found in java.util package. 
+
+LinkedList
+A linked list is a linear data structure, in which the elements are not stored at contiguous memory locations. The elements in a linked list are linked using pointers,In simple words, a linked list consists of nodes where each node contains a data field and a reference(link) to the next node in the list
+
+
+
