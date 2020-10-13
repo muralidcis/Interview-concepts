@@ -1,11 +1,62 @@
 kubernetecs:
+KUBERNETES is a container management system developed in the Google platform. The purpose of kubernetes is to manage a containerized application in various types of Physical, virtual, and cloud environments. Google Kubernetes is a highly flexible container tool to deliver even complex applications, consistently. Applications run on clusters of hundreds to thousands of individual servers.
+
+Google Kubernetes is highly flexible container tool to deliver even complex applications, consistently. Applications 'run on clusters of hundreds to thousands of individual servers
+
+Kubernetes is the Linux kernel which is used for distributed systems. It helps you to be abstract the underlying hardware of the nodes(servers) and offers a consistent interface for applications that consume the shared pool of resources.
+
+
+feaatures of kubernetics:
+    Automated Scheduling
+    Self-Healing Capabilities
+    Automated rollouts & rollback
+    Horizontal Scaling & Load Balancing
+    Offers environment consistency for development, testing, and production
+    Infrastructure is loosely coupled to each component can act as a separate unit
+    Provides a higher density of resource utilization
+    Offers enterprise-ready features
+    Application-centric management
+    Auto-scalable infrastructure
+    You can create predictable infrastructure 
+
+
+Cluster:
+It is a collection of hosts(servers) that helps you to aggregate their available resources. That includes ram, CPU, ram, disk, and their devices into a usable pool. 
+
+Master:
+The master is a collection of components which make up the control panel of Kubernetes. These components are used for all cluster decisions. It includes both scheduling and responding to cluster events.
+
+Node:
+It is a single host which is capable of running on a physical or virtual machine. A node should run both kube-proxy, minikube, and kubelet which are considered as a part of the cluster.
+
+Namespace:
+It is a logical cluster or environment. It is a widely used method which is used for scoping access or dividing a cluster. 
+
+
+Master Node
+The master node is the first and most vital component which is responsible for the management of Kubernetes cluster. It is the entry point for all kind of administrative tasks. There might be more than one master node in the cluster to check for fault tolerance.
+The master node has various components like API Server, Controller Manager, Scheduler, and ETCD. Let see all of them.
+API Server: The API server acts as an entry point for all the REST commands used for controlling the cluster.
+
+Scheduler:
+The scheduler schedules the tasks to the slave node. It stores the resource usage information for every slave node. It is responsible for distributing the workload.
+It also helps you to track how the working load is used on cluster nodes. It helps you to place the workload on resources which are available and accept the workload. 
+
+Etcd:
+is a distributed key-value store that Kubernetes uses to share information about the overall state of a cluster. Additionally, nodes can refer to the global configuration data stored there to set themselves up whenever they are regenerated. etcd components store configuration detail and wright values. It communicates with the most component to receive commands and work. It also manages network rules and port forwarding activity. 
+
+Worker/Slave nodes
+
+Worker nodes are another essential component which contains all the required services to manage the networking between the containers, communicate with the master node, which allows you to assign resources to the scheduled containers.
+
+    Kubelet: gets the configuration of a Pod from the API server and ensures that the described containers are up and running.
+    Docker Container: Docker container runs on each of the worker nodes, which runs the configured pods
+    Kube-proxy: Kube-proxy acts as a load balancer and network proxy to perform service on a single worker node
+
+  Pods: A pod is a combination of single or multiple containers that logically run together on nodes,A Kubernetes pod is a group of containers, and is the smallest unit that Kubernetes administers. Pods have a single IP address that is applied to every container within the pod. Containers in a pod share the same resources such as memory and storage. This allows the individual Linux containers inside a pod to be treated collectively as a single application, as if all the containerized processes were running together on the same host in more traditional 
+
 
 userinterface/kubectl->controlpannel(api server,scheduler,contollermanager,etcd)->worknode(pod->container1,container2)[docker->kublet->kubeproxy]
-
-	
-pods:
-A Kubernetes pod is a group of containers, and is the smallest unit that Kubernetes administers. Pods have a single IP address that is applied to every container within the pod. Containers in a pod share the same resources such as memory and storage. This allows the individual Linux containers inside a pod to be treated collectively as a single application, as if all the containerized processes were running together on the same host in more traditional 
-
 
 deployments:
 Kubernetes deployments define the scale at which you want to run your application by letting you set the details of how you would like pods replicated on your Kubernetes nodes. Deployments describe the number of desired identical pod replicas to run and the preferred update strategy used when updating the deployment
@@ -18,6 +69,3 @@ A Kubernetes node manages and runs pods; it's the machine (whether virtualized o
 
 cluster:
 A cluster is all of the above components put together as a single unit.
-
-etcd :
-is a distributed key-value store that Kubernetes uses to share information about the overall state of a cluster. Additionally, nodes can refer to the global configuration data stored there to set themselves up whenever they are regenerated.
